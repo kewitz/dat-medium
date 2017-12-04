@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-preact"],
+  "rules": {
+    "array-bracket-spacing": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-extraneous-dependencies": 0,
+    "indent": ["error", 2],
+    "no-restricted-syntax": 0,
+    "object-curly-spacing": ["error", "always"]
+  }
+}
