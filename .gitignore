@@ -49,4 +49,6 @@ build
 # Editor
 .idea
 
+# Project related distribution and testing
 dist
+tmp
