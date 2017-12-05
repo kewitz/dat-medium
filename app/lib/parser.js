@@ -13,12 +13,12 @@ const parseHeaders = header =>
   header
     .split('\n')
     .reduce((acc, field) => {
-      const [key, ...values] = field.split(':')
+      const [ key, ...values ] = field.split(':')
       return Object.assign({}, acc, { [key]: values.join('').trim() })
     }, {})
 
 const parse = article => {
-  const [header, ...text] = article.split('\n\n')
+  const [ header, ...text ] = article.split('\n\n')
   const mdBody = text.join('\n\n')
   const body = md.render(mdBody)
   const words = mdBody.match(/\w+/g).length

@@ -25,6 +25,10 @@
     "eslint": "^4.10.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-preact": "^1.1.6",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "webpack": "^3.8.1",
     "webpack-hot-middleware": "^2.20.0"
   },
