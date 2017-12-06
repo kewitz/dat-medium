@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(__dirname, 'app/app.js')],
+  entry: [ 'babel-polyfill', path.resolve(__dirname, 'app/app.js') ],
   devtool: 'cheap-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -15,7 +15,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [ '.js', '.jsx' ],
     modules: [
       'node_modules',
       path.resolve(__dirname, 'app'),

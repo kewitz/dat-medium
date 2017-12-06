@@ -1,6 +1,5 @@
 const Dat = require('dat-node')
 const path = require('path')
-const webpack = require('webpack')
 
 const tmppath = path.resolve(__dirname, 'tmp')
 
