@@ -21,7 +21,13 @@ const navigateByHash = page => {
   return { page }
 }
 
+const fork = params => state => async actions => {
+  const url = await medium.fork(params)
+  window.location = url
+}
+
 export default {
+  fork,
   init,
   navigateByHash,
   update: newState => newState,
