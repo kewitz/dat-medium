@@ -15,3 +15,9 @@ export const logAndReturn = defaultReturn => err => {
 export const setInnerHtml = html => element => {
   element.innerHTML = html
 }
+
+export const appendStyle = css => {
+  const style = document.createElement('style')
+  style.innerHTML = css
+  document.head.appendChild(style)
+}
