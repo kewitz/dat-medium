@@ -1,0 +1,96 @@
+@import 'normalize.css';
+
+body { font-family: sans-serif; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a.button {
+  border-radius: 4px;
+  border: 1px solid;
+  color: #999;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 2px 4px;
+}
+a.button:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5 { font-family: sans-serif; }
+code { font-size: 0.9em; }
+pre {
+  background: #000;
+  border-radius: 4px;
+  color: #FFF;
+  margin: 1em;
+  padding: 0.5em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.container { margin: auto 1em; }
+
+main > header {
+  color: #444;
+  font-weight: bold;
+  margin: 2em auto 4em;
+}
+main > header .container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+main > header .brand {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+main > header svg {
+  margin-right: 1em;
+}
+
+main > footer {
+  font-size: 0.8em;
+  color: #AAA;
+  height: 3em;
+  display: flex;
+  align-items: center;
+}
+
+article { margin-bottom: 6em; }
+article a:hover { opacity: 0.7; }
+article header {
+  color: #666;
+  display: flex;
+  font-size: 0.8em;
+  line-height: 1.2em;
+  height: 4em;
+  flex-direction: row;
+}
+article header .author { color: #111; }
+article header .display { margin-right: 1em; }
+article header .display img {
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+}
+article header .meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+article .body {
+  font-family: serif;
+  line-height: 1.5;
+  text-align: justify;
+}
+article .body a  { text-decoration: underline dotted; }
+article .body h1 { font-size: 1.8em; }
+
+@media screen and (min-width: 800px) {
+  .container {
+    margin: auto;
+    max-width: 600px;
+  }
+  .container.wide { max-width: 800px; }
+}

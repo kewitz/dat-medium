@@ -1,5 +1,5 @@
 import { parse } from 'lib/parser'
-import { byDate, isMarkdown, logAndReturn } from 'lib/helpers'
+import { appendStyle, byDate, isMarkdown, logAndReturn } from 'lib/helpers'
 
 class Medium {
   constructor () {
@@ -33,6 +33,12 @@ class Medium {
         () => { console.error('/blog.json not found') }
       )
     return { ...info, ...blog }
+  }
+
+  async loadStyle () {
+    return this.dat.readFile('/style.css')
+      .then(appendStyle)
+      .catch(() => { console.error('/style.css not found') })
   }
 }
 

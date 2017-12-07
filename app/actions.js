@@ -4,6 +4,7 @@ const init = (url = window.location.origin) => state => async actions => {
   actions.update({ isLoading: true })
   if (state.isBeaker) {
     await medium.init(url)
+    await medium.loadStyle()
     const articles = await medium.preloadArticles()
     const { title, ...info } = await medium.loadInfo()
     actions.update({ articles, info, title })
