@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 import Logo from 'components/Logo'
 
-export default ({ title }) =>
+export default ({ info, title }) =>
   <header>
     <div class='container wide'>
       <a href='#'>
@@ -10,5 +10,6 @@ export default ({ title }) =>
           {title}
         </div>
       </a>
+      { (info && !info.isOwner) && <a href='#fork' class='button small'>Fork</a> }
     </div>
   </header>
