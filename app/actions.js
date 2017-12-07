@@ -1,15 +1,12 @@
-import {
-  loadInfo,
-  preloadArticles,
-} from 'lib/parser'
+import medium from 'lib/medium'
 
 const init = (url = window.location.origin) => state => async actions => {
   actions.update({ isLoading: true })
   if (state.isBeaker) {
-    const dat = await new window.DatArchive(url)
-    const articles = await preloadArticles(dat)
-    const info = await loadInfo(dat)
-    actions.update({ info, dat, articles })
+    await medium.init(url)
+    const articles = await medium.preloadArticles()
+    const { title, ...info } = await medium.loadInfo()
+    actions.update({ articles, info, title })
   }
   actions.update({ isLoading: false })
 
