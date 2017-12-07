@@ -1,0 +1,46 @@
+section#fork {
+  display: flex;
+  justify-content: center;
+}
+section#fork form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+section#fork form > * {
+  margin: 0 0 1em;
+}
+section#fork form input[type='text'] {
+  border: none;
+  outline: none;
+}
+section#fork #displayPicture {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+}
+section#fork #displayPicture svg.overlay {
+  opacity: 0.2;
+  position: absolute;
+  width: 50%;
+}
+section#fork #displayPicture:hover svg.overlay {
+  opacity: 0.9;
+}
+section#fork #displayPicture input {
+  display: none;
+}
+section#fork #displayPicture img[src] {
+  height: 100%;
+  width: 100%;
+}
+section#fork #displayPicture:hover img[src] {
+  opacity: .5;
+}
