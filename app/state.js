@@ -1,5 +1,5 @@
 export default {
-  info: undefined,
+  title: '',
   articles: [],
   isLoading: true,
   isBeaker: Boolean(window.DatArchive),
