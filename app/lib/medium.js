@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { parse } from 'lib/parser'
 import { appendStyle, byDate, isMarkdown, logAndReturn } from 'lib/helpers'
 
@@ -14,7 +15,9 @@ class Medium {
   async preloadArticles () {
     const parseFile = async file => {
       const body = await this.dat.readFile(`/articles/${file.name}`)
-      return { ...file, ...parse(body) }
+      const parsed = parse(body)
+      if (!parsed.date) parsed.date = moment(file.stat.ctime)
+      return { ...file, ...parsed }
     }
     const parseFiles = files =>
       Promise.all(files.filter(isMarkdown).map(parseFile))
