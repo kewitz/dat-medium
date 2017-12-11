@@ -93,10 +93,10 @@ article header .meta {
 article .body {
   font-family: serif;
   line-height: 1.5;
-  text-align: justify;
 }
 article .body a  { text-decoration: underline dotted; }
 article .body h1 { font-size: 1.8em; }
+article .body img { max-width: 100%; }
 
 @media screen and (min-width: 800px) {
   .container {
