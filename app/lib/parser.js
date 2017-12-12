@@ -1,10 +1,13 @@
 import moment from 'moment'
 import markdownIt from 'markdown-it'
+import implicitFigures from 'markdown-it-implicit-figures'
 
 export const md = markdownIt({
   html: true,
   linkify: true,
 })
+
+md.use(implicitFigures, { figcaption: true })
 
 const WORDS_PER_MINUTE = 130
 

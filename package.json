@@ -37,6 +37,7 @@
   "dependencies": {
     "hyperapp": "^0.16.2",
     "markdown-it": "^8.4.0",
+    "markdown-it-implicit-figures": "^0.6.0",
     "moment": "^2.19.3"
   }
 }

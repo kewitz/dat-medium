@@ -3284,6 +3284,10 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
+markdown-it-implicit-figures@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-implicit-figures/-/markdown-it-implicit-figures-0.6.0.tgz#ef591a4a9682462d5be9e050b37debd0284850a1"
+
 markdown-it@^8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.0.tgz#e2400881bf171f7018ed1bd9da441dac8af6306d"

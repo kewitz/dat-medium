@@ -9,9 +9,7 @@ export default ({ articles, info, page }) => {
 
   return (
     <section class='articles'>
-      <div class='container'>
-        { shownArticles.map(Article({ ...info })) }
-      </div>
+      { shownArticles.map(Article({ ...info })) }
     </section>
   )
 }

@@ -39,7 +39,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.container { margin: auto 1em; }
+main { margin: 2em; }
+.container { margin: 1em auto; }
 
 main > header {
   color: #444;
@@ -77,6 +78,10 @@ article header {
   line-height: 1.2em;
   height: 4em;
   flex-direction: row;
+  margin: auto;
+}
+article h1.title {
+  margin: 1em auto;
 }
 article header .author { color: #111; }
 article header .display { margin-right: 1em; }
@@ -94,14 +99,29 @@ article .body {
   font-family: serif;
   line-height: 1.5;
 }
+article .body p { margin: 0.5em auto; }
 article .body a  { text-decoration: underline dotted; }
 article .body h1 { font-size: 1.8em; }
-article .body img { max-width: 100%; }
+article .body figure {
+  margin: 1em auto;
+}
+article .body figure img { width: 100%; }
+article .body figure figcaption {
+  color: #666;
+  font-family: monospace;
+  font-size: 0.9em;
+}
 
 @media screen and (min-width: 800px) {
-  .container {
-    margin: auto;
+  .container,
+  article header,
+  article h1.title,
+  article .body p {
     max-width: 600px;
   }
+  article .body figure {
+    max-width: 70%;
+  }
+  main { margin: auto; }
   .container.wide { max-width: 800px; }
 }
