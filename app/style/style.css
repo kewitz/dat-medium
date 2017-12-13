@@ -99,15 +99,16 @@ article .body {
   font-family: serif;
   line-height: 1.5;
 }
-article .body p { margin: 0.5em auto; }
+article .body > * { margin: 1em auto; }
 article .body a  { text-decoration: underline dotted; }
 article .body h1 { font-size: 1.8em; }
-article .body figure {
-  margin: 1em auto;
-}
+article .body section.footnotes { margin: 3em auto; }
+article .body section.footnotes::before { content: 'Notes:'; }
+article .body hr.footnotes-sep { display: none; }
 article .body figure img { width: 100%; }
+article .body section.footnotes,
 article .body figure figcaption {
-  color: #666;
+  color: #777;
   font-family: monospace;
   font-size: 0.9em;
 }
@@ -116,12 +117,8 @@ article .body figure figcaption {
   .container,
   article header,
   article h1.title,
-  article .body p {
-    max-width: 600px;
-  }
-  article .body figure {
-    max-width: 70%;
-  }
+  article .body > * { max-width: 600px; }
+  article .body figure { max-width: 70%; }
   main { margin: auto; }
   .container.wide { max-width: 800px; }
 }

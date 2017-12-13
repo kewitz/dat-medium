@@ -1,6 +1,7 @@
 import moment from 'moment'
 import markdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
+import footnotes from 'markdown-it-footnote'
 
 export const md = markdownIt({
   html: true,
@@ -8,6 +9,7 @@ export const md = markdownIt({
 })
 
 md.use(implicitFigures, { figcaption: true })
+md.use(footnotes)
 
 const WORDS_PER_MINUTE = 130
 
