@@ -62,12 +62,16 @@ main > header svg {
 }
 
 main > footer {
-  font-size: 0.8em;
+  align-items: baseline;
   color: #AAA;
-  height: 3em;
   display: flex;
-  align-items: center;
+  font-family: monospace;
+  font-size: 0.9em;
+  justify-content: flex-end;
+  margin: 1em;
 }
+main > footer svg { margin-right: 5px; }
+main > footer svg path { fill: #AAA; }
 
 article { margin-bottom: 6em; }
 article a:hover { opacity: 0.7; }

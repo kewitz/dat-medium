@@ -1,9 +1,8 @@
 import { h } from 'hyperapp'
 import { version } from '../../package.json'
+import Logo from 'components/Logo'
 
 export default () =>
   <footer>
-    <div class='container wide'>
-      Powered by dat-medium v.{ version }
-    </div>
+    <Logo size='20px' /> v.{ version }
   </footer>

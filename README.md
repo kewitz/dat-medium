@@ -1,5 +1,6 @@
-# dat-medium
-Markdown blog system for Beaker inspired by Medium.
+<img src="logo.svg" height="100px">
+
+**Dat Medium** is markdown blog system for Beaker inspired by Medium.
 
 ## Installing
 
