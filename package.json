@@ -39,6 +39,7 @@
     "markdown-it": "^8.4.0",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-implicit-figures": "^0.6.0",
-    "moment": "^2.19.3"
+    "moment": "^2.19.3",
+    "url-search-utils": "^0.2.0"
   }
 }

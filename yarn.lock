@@ -5073,6 +5073,10 @@ untildify@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/untildify/-/untildify-3.0.2.tgz#7f1f302055b3fea0f3e81dc78eb36766cb65e3f1"
 
+url-search-utils@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/url-search-utils/-/url-search-utils-0.2.0.tgz#5bbc46eb66300936b37aea09e3423eb14bb0c38a"
+
 url@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"

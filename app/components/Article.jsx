@@ -35,7 +35,7 @@ export default defaults => params => {
         </div>
       </header>
       <h1 class='title'>
-        <a href={`#${params.name}`}>
+        <a href={`?page=${params.name}`}>
           {params.title}
         </a>
       </h1>

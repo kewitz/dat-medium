@@ -1,4 +1,5 @@
 import medium from 'lib/medium'
+import { parseSearchParams } from 'url-search-utils'
 
 const init = (url = window.location.origin) => state => async actions => {
   actions.update({ isLoading: true })
@@ -11,13 +12,16 @@ const init = (url = window.location.origin) => state => async actions => {
   }
   actions.update({ isLoading: false })
 
-  actions.navigateByHash()
-  window.onhashchange = () => actions.navigateByHash()
+  actions.navigate()
+  window.onhashchange = () => actions.navigate()
 }
 
-const navigateByHash = page => {
-  page = window.location.hash.slice(1)
-  window.scrollTo(0, 0)
+const navigate = page => {
+  const query = parseSearchParams({
+    numberparam: 'number',
+    strarray: 'array-of-strings',
+  })
+  if (!page) page = query.page
   return { page }
 }
 
@@ -29,6 +33,6 @@ const fork = params => state => async actions => {
 export default {
   fork,
   init,
-  navigateByHash,
+  navigate,
   update: newState => newState,
 }
