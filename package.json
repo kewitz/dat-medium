@@ -1,13 +1,14 @@
 {
   "name": "dat-medium",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "P2P blog platform inspired by Medium for Beaker.",
   "author": "Leonardo Kewitz <leokewitz@gmail.com>",
   "license": "MIT",
   "main": "dist/dat-medium.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "webpack -w --config webpack.config.dev.js"
+    "dev": "webpack -w --config webpack.config.dev.js",
+    "dist": "yarn build && cd dist && dat sync"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
