@@ -12,6 +12,7 @@ md.use(implicitFigures, { figcaption: true })
 md.use(footnotes)
 
 const WORDS_PER_MINUTE = 130
+const DATE_FORMATS = [ 'DD-MM-YYYY', 'DD-MM', 'MM-DD-YYYY' ]
 
 const calculateDuration = text => {
   const words = text.match(/\w+/g).length
@@ -36,7 +37,7 @@ export const parse = article => {
   if (hasHeaders) {
     [ header, ...text ] = article.split('\n\n')
     fields = parseHeaders(header)
-    date = fields.date && moment(fields.date)
+    date = fields.date && moment(fields.date, DATE_FORMATS)
     text = text.join('\n\n')
   } else text = article
   const body = md.render(text)
