@@ -1,6 +1,6 @@
 export const byDate = (a, b) => {
-  const dateA = a.date || a.stat.ctime
-  const dateB = b.date || b.stat.ctime
+  const dateA = a.date || a.stat.mtime
+  const dateB = b.date || b.stat.mtime
   return dateA > dateB ? -1 : 1
 }
 
