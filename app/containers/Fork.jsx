@@ -4,7 +4,7 @@ import { parseForm } from 'lib/helpers'
 import 'style/fork.css'
 import Form from 'components/Fork/Form'
 
-export default ({ fork }) => {
+export default ({ actions }) => {
   const onSubmit = e => {
     e.preventDefault()
     const form = parseForm(e)
@@ -14,7 +14,7 @@ export default ({ fork }) => {
       const [ , ext, data ] = image.match(/data:image\/(\w+);base64,(.*)$/)
       photo = { data, ext }
     }
-    fork({ author, description, photo, title })
+    actions.fork({ author, description, photo, title })
   }
 
   return (

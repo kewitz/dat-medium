@@ -2,14 +2,14 @@ import { h } from 'hyperapp'
 
 import Article from 'components/Article'
 
-export default ({ articles, info, page }) => {
-  const shownArticles = page
-    ? articles.filter(({ name }) => name === page)
-    : articles
+export default ({ state }) => {
+  const shownArticles = state.page
+    ? state.articles.filter(({ name }) => name === state.page)
+    : state.articles
 
   return (
     <section class='articles'>
-      { shownArticles.map(Article({ ...info })) }
+      { shownArticles.map(Article({ ...state.info })) }
     </section>
   )
 }
