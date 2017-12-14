@@ -44,7 +44,6 @@ main { margin: 2em; }
 
 main > header {
   color: #444;
-  font-weight: bold;
   margin: 2em auto 4em;
 }
 main > header .container {
@@ -56,6 +55,7 @@ main > header .brand {
   align-items: center;
   cursor: pointer;
   display: flex;
+  font-weight: bold;
 }
 main > header svg {
   margin-right: 1em;
