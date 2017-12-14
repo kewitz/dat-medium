@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: [ 'babel-polyfill', path.resolve(__dirname, 'app/app.js') ],
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
