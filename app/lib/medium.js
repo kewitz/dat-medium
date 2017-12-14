@@ -1,6 +1,8 @@
 import moment from 'moment'
 import { parse, renderInline } from 'lib/parser'
-import { appendStyle, byDate, isMarkdown, logAndReturn } from 'lib/helpers'
+import { appendStyle, byDate, isMarkdown } from 'lib/helpers'
+
+const debug = require('debug')('medium')
 
 class Medium {
   constructor () {
@@ -12,38 +14,40 @@ class Medium {
     this.dat = await new window.DatArchive(url)
   }
 
-  async preloadArticles () {
-    const parseFile = async file => {
-      const body = await this.dat.readFile(`/articles/${file.name}`)
-      const parsed = parse(body)
-      if (!parsed.date) parsed.date = moment(file.stat.ctime)
-      return { ...file, ...parsed }
-    }
-    const parseFiles = files =>
-      Promise.all(files.filter(isMarkdown).map(parseFile))
-    const sortArticles = articles => articles.sort(byDate)
+  async loadArticle ({ name, ...file }) {
+    debug('Loading article', name)
+    const body = await this.dat.readFile(`/articles/${name}`)
+    const parsed = parse(body)
+    if (!parsed.date) parsed.date = moment(file.stat.mtime)
+    return { ...file, name, ...parsed }
+  }
 
-    return this.dat.readdir('/articles', { recursive: true, stat: true })
-      .then(parseFiles, logAndReturn([]))
-      .then(sortArticles)
+  async preloadArticles () {
+    debug('Pre-loading articles...')
+    const files = await this.dat.readdir('/articles', { recursive: true, stat: true })
+    const articles = await Promise.all(files.filter(isMarkdown).map(file => this.loadArticle(file)))
+    return articles.sort(byDate)
   }
 
   async loadInfo () {
-    this.info = await this.dat.getInfo()
-    this.blog = await this.dat.readFile('/blog.json')
+    debug('Loading info...')
+    const info = await this.dat.getInfo()
+    const blog = await this.dat.readFile('/blog.json')
       .then(
         config => JSON.parse(config),
         () => { console.error('/blog.json not found') }
       )
-    this.blog.author = renderInline(this.blog.author)
-    this.info.description = renderInline(this.info.description)
-    return { ...this.info, ...this.blog }
+    blog.author = renderInline(blog.author)
+    info.description = renderInline(info.description)
+    debug('Info loaded:', { ...info, ...blog })
+    return { ...info, ...blog }
   }
 
   async loadStyle () {
+    debug('Loading style...')
     return this.dat.readFile('/style.css')
       .then(appendStyle)
-      .catch(() => { console.error('/style.css not found') })
+      .catch(() => { debug('/style.css not found') })
   }
 
   async fork ({ author, description, photo, title }) {
