@@ -1,5 +1,5 @@
 import medium from 'lib/medium'
-import { parseSearchParams } from 'url-search-utils'
+import { getQuery } from 'lib/QueryRouter'
 
 const init = (url = window.location.origin) => state => async actions => {
   actions.update({ isLoading: true })
@@ -11,18 +11,12 @@ const init = (url = window.location.origin) => state => async actions => {
     actions.update({ articles, info, title })
   }
   actions.update({ isLoading: false })
-
   actions.navigate()
-  window.onhashchange = () => actions.navigate()
 }
 
-const navigate = page => {
-  const query = parseSearchParams({
-    numberparam: 'number',
-    strarray: 'array-of-strings',
-  })
-  if (!page) page = query.page
-  return { page }
+const navigate = page => state => actions => {
+  const query = getQuery()
+  actions.update({ query })
 }
 
 const fork = params => state => async actions => {
@@ -30,9 +24,11 @@ const fork = params => state => async actions => {
   window.location = url
 }
 
+const update = newState => newState
+
 export default {
   fork,
   init,
   navigate,
-  update: newState => newState,
+  update,
 }

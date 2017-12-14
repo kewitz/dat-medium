@@ -27,3 +27,5 @@ export const parseForm = event =>
     .from(event.target)
     .map(({ id, value }) => ({ [id]: value }))
     .reduce((acc, v) => ({ ...acc, ...v }), {})
+
+export const call = fn => e => e(fn)

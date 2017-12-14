@@ -36,6 +36,7 @@
     "webpack-hot-middleware": "^2.20.0"
   },
   "dependencies": {
+    "deep-equal": "^1.0.1",
     "hyperapp": "^0.16.2",
     "markdown-it": "^8.4.0",
     "markdown-it-footnote": "^3.0.1",

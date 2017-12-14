@@ -3,8 +3,8 @@ import { h } from 'hyperapp'
 import Article from 'components/Article'
 
 export default ({ state }) => {
-  const shownArticles = state.page
-    ? state.articles.filter(({ name }) => name === state.page)
+  const shownArticles = state.query.article
+    ? state.articles.filter(({ name }) => name === state.query.article)
     : state.articles
 
   return (
