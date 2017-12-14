@@ -16,26 +16,25 @@ const Display = ({ display }) =>
     ? <div class='display'><img src={display} /></div>
     : null
 
-export default defaults => params => {
+export default props => {
   return (
-    <article>
+    <article key={props.name} oncreate={props.oncreate}>
       <header>
-        {Display(defaults)}
+        {Display(props)}
         <div class='meta'>
-          <div class='author'>{Author(defaults)}</div>
-          {Date(params)}
-          <div class='duration'>{Math.ceil(params.duration)} min read</div>
+          <div class='author'>{Author(props)}</div>
+          {Date(props)}
+          <div class='duration'>{Math.ceil(props.duration)} min read</div>
         </div>
       </header>
       <h1 class='title'>
-        <a href={`?article=${params.name}`}>
-          {params.title}
+        <a href={`?article=${props.name}`}>
+          {props.title}
         </a>
       </h1>
       <div
         class='body'
-        oncreate={setInnerHtml(params.body)}
-        onupdate={setInnerHtml(params.body)}
+        oncreate={setInnerHtml(props.body)}
       />
     </article>
   )

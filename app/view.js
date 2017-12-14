@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 import { Router, Route } from 'lib/QueryRouter'
 
-import ArticleList from 'components/ArticleList'
+import ArticleList from 'containers/ArticleList'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Fork from 'containers/Fork'
