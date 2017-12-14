@@ -28,6 +28,8 @@ const parseHeaders = header =>
       return { ...acc, [key]: values.join('').trim() }
     }, {})
 
+export const renderInline = args => md.renderInline(args)
+
 export const parse = article => {
   let date, fields, header, text
   const hasHeaders = article.match(/^\w+:/)

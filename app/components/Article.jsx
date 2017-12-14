@@ -1,17 +1,10 @@
 import { h } from 'hyperapp'
 import { setInnerHtml } from 'lib/helpers'
 
-const Author = ({ author, link }) => {
-  if (author && link) {
-    return (
-      <div class='author'>
-        <a href={link} target='_blank'>{author}</a>
-      </div>
-    )
-  } else if (author) {
-    return <div class='author'>{author}</div>
-  } else return null
-}
+const Author = ({ author }) =>
+  author
+    ? <div class='author' oncreate={setInnerHtml(author)} />
+    : null
 
 const Date = ({ date }) =>
   date

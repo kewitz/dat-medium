@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { parse } from 'lib/parser'
+import { parse, renderInline } from 'lib/parser'
 import { appendStyle, byDate, isMarkdown, logAndReturn } from 'lib/helpers'
 
 class Medium {
@@ -35,6 +35,8 @@ class Medium {
         config => JSON.parse(config),
         () => { console.error('/blog.json not found') }
       )
+    this.blog.author = renderInline(this.blog.author)
+    this.info.description = renderInline(this.info.description)
     return { ...this.info, ...this.blog }
   }
 
