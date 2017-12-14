@@ -46,12 +46,18 @@ class Medium {
 
   async fork ({ author, description, photo, title }) {
     const fork = await window.DatArchive.fork(this.dat.url, { title, description })
-    const display = `/author.${photo.ext}`
+    // Clean Everything
     await fork.unlink(this.blog.display)
     await fork.rmdir('articles', { recursive: true })
+    // Create Files
+    const blog = { author }
     await fork.mkdir('articles')
-    await fork.writeFile(display, photo.data, { encoding: 'base64' })
-    await fork.writeFile('/blog.json', JSON.stringify({ author, display }))
+    if (photo) {
+      blog.display = `/author.${photo.ext}`
+      await fork.writeFile(blog.display, photo.data, { encoding: 'base64' })
+    }
+    await fork.writeFile('/blog.json', JSON.stringify(blog))
+    // Create Default Post
     const date = (new Date()).toISOString().slice(0, 10)
     await fork.writeFile('articles/hello.md', `date: ${date}\ntitle: First Post\n\nThis is my first post.`)
     await fork.commit()

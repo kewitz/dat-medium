@@ -21,3 +21,9 @@ export const appendStyle = css => {
   style.innerHTML = css
   document.head.appendChild(style)
 }
+
+export const parseForm = event =>
+  Array
+    .from(event.target)
+    .map(({ id, value }) => ({ [id]: value }))
+    .reduce((acc, v) => ({ ...acc, ...v }), {})
