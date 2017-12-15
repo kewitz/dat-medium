@@ -23,21 +23,19 @@ class Medium {
   }
 
   async preloadArticles () {
-    debug('Pre-loading articles...')
     const files = await this.dat.readdir('/articles', { recursive: true, stat: true })
     const articles = await Promise.all(files.filter(isMarkdown).map(file => this.loadArticle(file)))
     return articles.sort(byDate)
   }
 
   async loadInfo () {
-    debug('Loading info...')
     const info = await this.dat.getInfo()
     const blog = await this.dat.readFile('/blog.json')
       .then(
         config => JSON.parse(config),
         () => { console.error('/blog.json not found') }
       )
-    blog.author = renderInline(blog.author)
+    blog.author = blog.author && renderInline(blog.author)
     info.description = renderInline(info.description)
     debug('Info loaded:', { ...info, ...blog })
     return { ...info, ...blog }
