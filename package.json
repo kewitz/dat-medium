@@ -1,6 +1,6 @@
 {
   "name": "dat-medium",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "P2P blog platform inspired by Medium for Beaker.",
   "author": "Leonardo Kewitz <leokewitz@gmail.com>",
   "license": "MIT",
