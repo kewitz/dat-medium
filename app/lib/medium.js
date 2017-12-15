@@ -1,5 +1,6 @@
+import 'lib/DatArchive'
 import { parse, renderInline } from 'lib/parser'
-import { appendStyle, byDate, isMarkdown } from 'lib/helpers'
+import { appendCSS, byDate, isMarkdown } from 'lib/helpers'
 
 const debug = require('debug')('medium')
 
@@ -43,10 +44,11 @@ class Medium {
   }
 
   async loadStyle () {
-    debug('Loading style...')
-    return this.dat.readFile('/style.css')
-      .then(appendStyle)
-      .catch(() => { debug('/style.css not found') })
+    const exists = await this.dat.exists('/style.css')
+    if (exists) {
+      appendCSS('/style.css')
+      debug('Custom style.css loaded.')
+    }
   }
 
   async fork ({ author, description, photo, title }) {

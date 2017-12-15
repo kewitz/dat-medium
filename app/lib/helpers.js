@@ -16,10 +16,17 @@ export const setInnerHtml = html => element => {
   element.innerHTML = html
 }
 
-export const appendStyle = css => {
-  const style = document.createElement('style')
-  style.innerHTML = css
-  document.head.appendChild(style)
+export const makeElement = ({ tag, ...props }) =>
+  Object.assign(document.createElement(tag), props)
+
+export const appendCSS = href => {
+  const link = makeElement({
+    tag: 'link',
+    rel: 'stylesheet',
+    type: 'text/css',
+    href,
+  })
+  document.head.appendChild(link)
 }
 
 export const parseForm = event =>
