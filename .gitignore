@@ -42,6 +42,7 @@ build
 
 # Packaged and compiled files
 .eslintcache
+.cache-loader
 
 # Env configuration
 .env

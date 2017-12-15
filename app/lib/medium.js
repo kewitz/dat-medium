@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { parse, renderInline } from 'lib/parser'
 import { appendStyle, byDate, isMarkdown } from 'lib/helpers'
 

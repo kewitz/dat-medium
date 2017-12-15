@@ -1,5 +1,6 @@
 const Dat = require('dat-node')
 const path = require('path')
+const webpack = require('webpack')
 
 const tmppath = path.resolve(__dirname, 'tmp')
 
@@ -10,7 +11,12 @@ module.exports = {
     publicPath: '/',
     filename: './dat-medium.js',
   },
-  plugins: [],
+  plugins: [
+    new webpack.ProvidePlugin({
+      moment: 'moment/min/moment.min.js',
+      markdownIt: 'markdown-it/dist/markdown-it.min.js',
+    }),
+  ],
 }
 
 const launchDat = () =>

@@ -11,7 +11,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.js[x]?$/, exclude: /node_modules/, use: 'babel-loader' },
+      { test: /\.js[x]?$/, exclude: /node_modules/, use: [ 'cache-loader', 'babel-loader' ] },
       { test: /\.css$/, exclude: /node_modules/, use: [ 'style-loader', 'css-loader' ] },
     ],
   },
@@ -27,6 +27,10 @@ module.exports = {
       compress: true,
       sourceMap: true,
       warningsFilter: () => false,
+    }),
+    new webpack.ProvidePlugin({
+      moment: 'moment/min/moment.min.js',
+      markdownIt: 'markdown-it/dist/markdown-it.min.js',
     }),
   ],
 }

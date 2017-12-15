@@ -1,5 +1,3 @@
-import moment from 'moment'
-import markdownIt from 'markdown-it'
 import implicitFigures from 'markdown-it-implicit-figures'
 import footnotes from 'markdown-it-footnote'
 

@@ -1,6 +1,10 @@
 {
   "parser": "babel-eslint",
   "extends": ["standard", "standard-preact"],
+  "globals": {
+    "moment": true,
+    "markdownIt": true
+  },
   "rules": {
     "array-bracket-spacing": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],
