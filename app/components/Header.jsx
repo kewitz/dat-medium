@@ -1,15 +1,16 @@
 import { h } from 'hyperapp'
 import Logo from 'components/Logo'
+import { Link } from 'router'
 
 export default ({ state }) =>
   <header>
     <div class='container wide'>
-      <a href='/'>
+      <Link to='/'>
         <div class='brand'>
           <Logo size='40px' />
           {state.title}
         </div>
-      </a>
-      <a href='?page=fork' class='button small'>Fork</a>
+      </Link>
+      <Link to='/fork' class='button small'>Fork</Link>
     </div>
   </header>

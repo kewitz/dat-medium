@@ -1,8 +1,9 @@
 import medium from 'lib/medium'
-import { getQuery } from 'lib/QueryRouter'
+import router from 'router'
 
 const init = (url = window.location.origin) => state => async actions => {
   actions.update({ isLoading: true })
+  router(state, actions)
   if (state.isBeaker) {
     await medium.init(url)
     await medium.loadStyle()
@@ -11,12 +12,11 @@ const init = (url = window.location.origin) => state => async actions => {
     actions.update({ articles, info, title })
   }
   actions.update({ isLoading: false })
-  actions.navigate()
 }
 
-const navigate = page => state => actions => {
-  const query = getQuery()
-  actions.update({ query })
+const route = route => {
+  window.history.pushState({}, '', `?${route.page}`)
+  return { route }
 }
 
 const fork = params => state => async actions => {
@@ -29,6 +29,6 @@ const update = newState => newState
 export default {
   fork,
   init,
-  navigate,
+  route,
   update,
 }

@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import { Router, Route } from 'lib/QueryRouter'
+import { Router } from 'router'
 
 import ArticleList from 'containers/ArticleList'
 import Footer from 'components/Footer'
@@ -12,14 +12,12 @@ export default state => actions => {
   return (
     <main>
       <Header {...inject} />
-      <Router>
-        <Route page='fork'>
-          <Fork {...inject} />
-        </Route>
-        <Route default>
-          <ArticleList {...inject} />
-        </Route>
-      </Router>
+      <Router
+        page={state.route.page}
+        routes={{
+          '/fork': <Fork {...inject} />,
+          default: <ArticleList {...inject} />,
+        }} />
       <Footer />
     </main>
   )

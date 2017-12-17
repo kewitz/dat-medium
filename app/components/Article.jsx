@@ -1,5 +1,6 @@
 import { h } from 'hyperapp'
 import { setInnerHtml } from 'lib/helpers'
+import { Link } from 'router'
 
 const Author = ({ author }) =>
   author
@@ -28,9 +29,9 @@ export default props => {
         </div>
       </header>
       <h1 class='title'>
-        <a href={`?article=${props.name}`}>
+        <Link to={`/article/${props.name}`}>
           {props.title}
-        </a>
+        </Link>
       </h1>
       <div
         class='body'

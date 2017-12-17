@@ -1,9 +1,8 @@
 export default {
-  title: '',
   articles: [],
-  query: {
-    page: undefined,
-  },
-  isLoading: true,
+  info: {},
   isBeaker: Boolean(window.DatArchive),
+  isLoading: true,
+  route: { page: '/' },
+  title: '',
 }
