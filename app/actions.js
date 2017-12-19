@@ -1,7 +1,7 @@
 import medium from 'lib/medium'
 import router from 'router'
 
-const init = (url = window.location.origin) => state => async actions => {
+const init = (url = window.location.href) => state => async actions => {
   actions.update({ isLoading: true })
   router(state, actions)
   if (state.isBeaker) {

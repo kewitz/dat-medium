@@ -53,3 +53,4 @@ build
 # Project related distribution and testing
 dist
 tmp
+dat.json
