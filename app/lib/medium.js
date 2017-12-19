@@ -12,7 +12,8 @@ class Medium {
   }
 
   async init (url) {
-    this.basePath = url.replace(window.location.origin, '')
+    // Refreshing in Beaker adds a '?' to the URL, so strip out the location origin and any extra ?
+    this.basePath = url.replace(window.location.origin, '').replace('?', '')
     this.dat = await new window.DatArchive(url)
   }
 
