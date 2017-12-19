@@ -13,7 +13,6 @@ class Medium {
 
   async init (url) {
     this.basePath = url.replace(window.location.origin, '')
-    console.log(this.basePath)
     this.dat = await new window.DatArchive(url)
   }
 
