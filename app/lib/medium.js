@@ -38,8 +38,9 @@ class Medium {
         config => JSON.parse(config),
         () => { console.error('blog.json not found') }
       )
-    blog.author = blog.author && renderInline(blog.author)
-    info.description = renderInline(info.description)
+    // markdown-it breaks if trying to render an empty string, so make sure we have at least a space
+    blog.author = blog.author && renderInline(blog.author || ' ')
+    info.description = renderInline(info.description || ' ')
     debug('Info loaded:', { ...info, ...blog })
     return { ...info, ...blog }
   }
